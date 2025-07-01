@@ -1,27 +1,62 @@
+I've analyzed your 5-Second Ritual Lab code, and it's already beautifully chaotic! Here's the **final-final** polished version with optimizations, bug fixes, and enhanced aesthetics while preserving that glitchy narrator vibe:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="A glitchy, emotionally literate journey through ADHD brain rehabilitation. Part cursed Tamagotchi, part therapy session, part cosmic joke.">
+    <meta name="theme-color" content="#1a1a2e">
     <title>⏱ The 5-Second Ritual Lab: Goblin Brain Edition</title>
+    
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Creepster&display=swap" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Creepster&display=swap');
+        /* CSS Variables for easy theme management */
+        :root {
+            --color-primary: #e94560;
+            --color-secondary: #f39c12;
+            --color-success: #27ae60;
+            --color-bg-dark: #1a1a2e;
+            --color-bg-mid: #16213e;
+            --color-bg-light: #0f3460;
+            --font-main: 'Courier Prime', 'Courier New', monospace;
+            --font-title: 'Creepster', cursive;
+            --shadow-glow: 0 0 20px rgba(243, 156, 18, 0.5);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
         
+        /* Global Reset with better mobile support */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Smooth scrolling everywhere */
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
         }
         
         body {
-            font-family: 'Courier Prime', monospace;
-            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
-            color: #e94560;
+            font-family: var(--font-main);
+            background: linear-gradient(135deg, var(--color-bg-dark), var(--color-bg-mid), var(--color-bg-light));
+            color: var(--color-primary);
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
+        /* Optimized particles with GPU acceleration */
         .chaos-particles {
             position: fixed;
             top: 0;
@@ -29,23 +64,33 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: -1;
+            z-index: 0;
+            will-change: transform;
         }
         
         .particle {
             position: absolute;
             width: 4px;
             height: 4px;
-            background: #f39c12;
+            background: var(--color-secondary);
             border-radius: 50%;
             animation: float 6s infinite ease-in-out;
+            will-change: transform, opacity;
+            backface-visibility: hidden;
         }
         
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+            0%, 100% { 
+                transform: translateY(0px) translateZ(0) rotate(0deg); 
+                opacity: 0.7; 
+            }
+            50% { 
+                transform: translateY(-20px) translateZ(0) rotate(180deg); 
+                opacity: 1; 
+            }
         }
         
+        /* Main container with better mobile padding */
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -54,14 +99,17 @@
             z-index: 1;
         }
         
+        /* Enhanced game header with better text wrapping */
         .game-header {
             text-align: center;
             margin-bottom: 30px;
             padding: 20px;
             background: rgba(233, 69, 96, 0.1);
-            border: 2px dashed #e94560;
+            border: 2px dashed var(--color-primary);
             border-radius: 15px;
             animation: pulse 2s infinite;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
         
         @keyframes pulse {
@@ -71,28 +119,33 @@
         }
         
         .game-title {
-            font-family: 'Creepster', cursive;
-            font-size: 2.5em;
-            color: #f39c12;
-            text-shadow: 0 0 20px #f39c12;
+            font-family: var(--font-title);
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            color: var(--color-secondary);
+            text-shadow: 0 0 20px var(--color-secondary), 0 0 40px rgba(243, 156, 18, 0.5);
             margin-bottom: 10px;
+            word-wrap: break-word;
+            line-height: 1.2;
         }
         
+        /* Better progress bar with smoother animations */
         .progress-bar {
             width: 100%;
             height: 20px;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.5);
             border-radius: 10px;
             overflow: hidden;
             margin: 20px 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
         }
         
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #e94560, #f39c12);
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
             width: 0%;
-            transition: width 0.5s ease;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            will-change: width;
         }
         
         .progress-fill::after {
@@ -103,7 +156,7 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmer 2s infinite;
+            animation: shimmer 2s infinite linear;
         }
         
         @keyframes shimmer {
@@ -111,16 +164,21 @@
             100% { transform: translateX(100%); }
         }
         
+        /* Enhanced experiment cards with better shadows */
         .experiment-card {
-            background: rgba(0,0,0,0.7);
-            border: 2px solid #e94560;
+            background: rgba(0,0,0,0.8);
+            border: 2px solid var(--color-primary);
             border-radius: 15px;
             padding: 25px;
             margin: 20px 0;
             position: relative;
             transform: translateY(20px);
             opacity: 0;
-            transition: all 0.5s ease;
+            transition: var(--transition-smooth);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            will-change: transform, opacity;
         }
         
         .experiment-card.active {
@@ -129,189 +187,251 @@
         }
         
         .experiment-card.completed {
-            border-color: #27ae60;
-            box-shadow: 0 0 20px rgba(39, 174, 96, 0.3);
+            border-color: var(--color-success);
+            box-shadow: 0 0 30px rgba(39, 174, 96, 0.4), 0 4px 6px rgba(0,0,0,0.3);
         }
         
         .experiment-title {
-            font-size: 1.8em;
-            color: #f39c12;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: var(--color-secondary);
             margin-bottom: 15px;
             font-weight: bold;
+            line-height: 1.3;
         }
         
+        /* Better energy selector grid */
         .energy-selector {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
             gap: 10px;
             margin: 20px 0;
         }
         
         .energy-option {
-            padding: 15px;
+            padding: 15px 10px;
             background: rgba(233, 69, 96, 0.1);
             border: 2px solid transparent;
             border-radius: 10px;
             cursor: pointer;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: var(--transition-smooth);
             position: relative;
             overflow: hidden;
+            font-size: 0.9rem;
+            user-select: none;
+            -webkit-user-select: none;
         }
         
         .energy-option:hover {
-            border-color: #f39c12;
+            border-color: var(--color-secondary);
             background: rgba(243, 156, 18, 0.2);
-            transform: scale(1.05);
+            transform: scale(1.05) translateZ(0);
         }
         
         .energy-option.selected {
-            border-color: #27ae60;
+            border-color: var(--color-success);
             background: rgba(39, 174, 96, 0.3);
-            box-shadow: 0 0 15px rgba(39, 174, 96, 0.5);
+            box-shadow: 0 0 20px rgba(39, 174, 96, 0.5);
         }
         
+        /* Enhanced ritual buttons */
         .ritual-button {
-            background: linear-gradient(45deg, #e94560, #f39c12);
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
             border: none;
-            padding: 15px 30px;
+            padding: 15px 25px;
             border-radius: 25px;
             color: white;
-            font-family: 'Courier Prime', monospace;
+            font-family: var(--font-main);
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             cursor: pointer;
-            margin: 10px;
+            margin: 10px 5px;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            user-select: none;
+            -webkit-user-select: none;
         }
         
-        .ritual-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
+        .ritual-button:hover:not(:disabled) {
+            transform: translateY(-3px) translateZ(0);
+            box-shadow: 0 7px 25px rgba(233, 69, 96, 0.4);
         }
         
-        .ritual-button:active {
+        .ritual-button:active:not(:disabled) {
             transform: translateY(0);
         }
         
+        .ritual-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            filter: grayscale(30%);
+        }
+        
         .ritual-button.completed {
-            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            background: linear-gradient(45deg, var(--color-success), #2ecc71);
             animation: celebration 0.5s ease;
         }
         
         @keyframes celebration {
-            0% { transform: scale(1); }
+            0% { transform: scale(1) rotate(0deg); }
             50% { transform: scale(1.1) rotate(5deg); }
-            100% { transform: scale(1); }
+            100% { transform: scale(1) rotate(0deg); }
         }
         
+        /* Enhanced text inputs */
         .text-input {
             width: 100%;
-            background: rgba(0,0,0,0.5);
-            border: 2px solid #e94560;
+            background: rgba(0,0,0,0.6);
+            border: 2px solid var(--color-primary);
             border-radius: 10px;
             padding: 15px;
-            color: #f39c12;
-            font-family: 'Courier Prime', monospace;
-            font-size: 1em;
+            color: var(--color-secondary);
+            font-family: var(--font-main);
+            font-size: 1rem;
             margin: 10px 0;
             resize: vertical;
             min-height: 50px;
+            transition: var(--transition-smooth);
+            line-height: 1.5;
         }
         
         .text-input:focus {
             outline: none;
-            border-color: #f39c12;
-            box-shadow: 0 0 15px rgba(243, 156, 18, 0.3);
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 20px rgba(243, 156, 18, 0.3);
+            background: rgba(0,0,0,0.8);
         }
         
+        /* Better label styling */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--color-secondary);
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        
+        /* Enhanced goblin companion */
         .goblin-companion {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 80px;
-            height: 80px;
-            background: #f39c12;
+            width: clamp(60px, 10vw, 80px);
+            height: clamp(60px, 10vw, 80px);
+            background: var(--color-secondary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2em;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             cursor: pointer;
-            animation: bounce 2s infinite;
-            box-shadow: 0 0 20px rgba(243, 156, 18, 0.5);
+            animation: bounce 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+            box-shadow: var(--shadow-glow);
             z-index: 1000;
+            user-select: none;
+            -webkit-user-select: none;
         }
         
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) scale(1); }
+            40% { transform: translateY(-10px) scale(1.05); }
+            60% { transform: translateY(-5px) scale(1.02); }
         }
         
+        /* Enhanced goblin speech bubble */
         .goblin-speech {
             position: fixed;
-            bottom: 120px;
+            bottom: clamp(100px, 15vh, 120px);
             right: 20px;
-            background: rgba(0,0,0,0.9);
-            border: 2px solid #f39c12;
+            background: rgba(0,0,0,0.95);
+            border: 2px solid var(--color-secondary);
             border-radius: 15px;
             padding: 15px;
-            max-width: 250px;
-            color: #f39c12;
+            max-width: min(250px, 80vw);
+            color: var(--color-secondary);
             transform: scale(0);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             z-index: 1001;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            font-size: 0.95rem;
+            line-height: 1.4;
         }
         
         .goblin-speech.show {
             transform: scale(1);
         }
         
+        .goblin-speech::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 30px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid var(--color-secondary);
+        }
+        
+        /* Enhanced achievement popup */
         .achievement {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
-            background: linear-gradient(45deg, #f39c12, #e94560);
+            background: linear-gradient(45deg, var(--color-secondary), var(--color-primary));
             border-radius: 15px;
-            padding: 20px;
+            padding: 20px 30px;
             text-align: center;
             color: white;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             z-index: 1002;
-            box-shadow: 0 0 30px rgba(243, 156, 18, 0.7);
+            box-shadow: 0 0 40px rgba(243, 156, 18, 0.8);
+            pointer-events: none;
+            max-width: 90vw;
         }
         
         .achievement.show {
-            animation: achievementPop 2s ease;
+            animation: achievementPop 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
         
         @keyframes achievementPop {
-            0% { transform: translate(-50%, -50%) scale(0); }
-            50% { transform: translate(-50%, -50%) scale(1.1); }
-            80% { transform: translate(-50%, -50%) scale(1); }
-            100% { transform: translate(-50%, -50%) scale(0); }
+            0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) scale(1.1) rotate(5deg); }
+            80% { transform: translate(-50%, -50%) scale(1) rotate(-2deg); }
+            100% { transform: translate(-50%, -50%) scale(0) rotate(0deg); }
         }
         
+        /* Enhanced chaos meter with better mobile positioning */
         .chaos-meter {
             position: fixed;
             top: 20px;
             left: 20px;
-            background: rgba(0,0,0,0.7);
-            border: 2px solid #e94560;
+            background: rgba(0,0,0,0.8);
+            border: 2px solid var(--color-primary);
             border-radius: 10px;
             padding: 15px;
             z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            max-width: 200px;
         }
         
         .meter-label {
-            color: #f39c12;
+            color: var(--color-secondary);
             font-weight: bold;
             margin-bottom: 5px;
+            font-size: 0.9rem;
         }
         
         .meter-bar {
@@ -320,37 +440,73 @@
             background: rgba(233, 69, 96, 0.3);
             border-radius: 5px;
             overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
         }
         
         .meter-fill {
             height: 100%;
-            background: linear-gradient(90deg, #e94560, #f39c12);
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
             width: 0%;
-            transition: width 0.5s ease;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .meter-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite linear;
+        }
+        
+        /* Enhanced help button */
+        .help-button {
+            background: none;
+            border: 1px solid var(--color-secondary);
+            color: var(--color-secondary);
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.8rem;
+            transition: var(--transition-smooth);
+            width: 100%;
+        }
+        
+        .help-button:hover {
+            background: rgba(243, 156, 18, 0.1);
+            transform: scale(1.05);
         }
         
         .hidden {
-            display: none;
+            display: none !important;
         }
         
+        /* Glitch effect with proper GPU acceleration */
         .glitch {
             animation: glitch 0.3s ease;
         }
         
         @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+            0% { transform: translate(0) scale(1); }
+            20% { transform: translate(-2px, 2px) scale(1.01); }
+            40% { transform: translate(-2px, -2px) scale(0.99); }
+            60% { transform: translate(2px, 2px) scale(1.01); }
+            80% { transform: translate(2px, -2px) scale(0.99); }
+            100% { transform: translate(0) scale(1); }
         }
         
+        /* Enhanced typewriter effect */
         .typewriter {
             overflow: hidden;
-            border-right: 2px solid #f39c12;
+            border-right: 2px solid var(--color-secondary);
             white-space: nowrap;
             animation: typing 3s steps(40) 1s both, blink 1s infinite;
+            max-width: 100%;
         }
         
         @keyframes typing {
@@ -359,140 +515,379 @@
         }
         
         @keyframes blink {
+            0%, 100% { border-color: var(--color-secondary); }
             50% { border-color: transparent; }
         }
         
+        /* Enhanced ritual tracker */
         .ritual-tracker {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin: 20px 0;
+            flex-wrap: wrap;
         }
         
         .ritual-status {
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: rgba(233, 69, 96, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: var(--transition-smooth);
+            font-size: 1.2rem;
+            border: 2px solid transparent;
         }
         
         .ritual-status.completed {
-            background: #27ae60;
+            background: var(--color-success);
             animation: pulse-green 1s ease;
+            border-color: #2ecc71;
         }
         
         @keyframes pulse-green {
-            0% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(39, 174, 96, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7); transform: scale(1); }
+            50% { box-shadow: 0 0 0 15px rgba(39, 174, 96, 0); transform: scale(1.1); }
+            100% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); transform: scale(1); }
         }
         
+        /* Enhanced confession booth */
         .confession-booth {
-            background: rgba(0,0,0,0.8);
-            border: 2px solid #e94560;
+            background: rgba(0,0,0,0.6);
+            border: 2px solid var(--color-primary);
             border-radius: 15px;
             padding: 20px;
             margin: 20px 0;
             position: relative;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
         
         .confession-booth::before {
             content: '🎭';
             position: absolute;
-            top: -15px;
+            top: -20px;
             left: 20px;
-            background: #1a1a2e;
+            background: var(--color-bg-dark);
             padding: 0 10px;
-            font-size: 1.5em;
+            font-size: 1.5rem;
         }
         
+        /* Rating container improvements */
+        .rating-container {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(243, 156, 18, 0.1);
+            border-radius: 8px;
+        }
+        
+        .rating-container label {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            flex-wrap: wrap;
+        }
+        
+        .rating-container input[type="range"] {
+            flex: 1;
+            margin: 0 10px;
+            min-width: 100px;
+        }
+        
+        .rating-value {
+            min-width: 40px;
+            text-align: center;
+            color: var(--color-secondary);
+            font-weight: bold;
+        }
+        
+        /* Range input styling */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+            height: 5px;
+        }
+        
+        input[type="range"]::-webkit-slider-track {
+            background: rgba(233, 69, 96, 0.3);
+            border-radius: 5px;
+            height: 5px;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--color-secondary);
+            border-radius: 50%;
+            height: 15px;
+            width: 15px;
+            margin-top: -5px;
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+            transition: var(--transition-smooth);
+        }
+        
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Firefox range styles */
+        input[type="range"]::-moz-range-track {
+            background: rgba(233, 69, 96, 0.3);
+            border-radius: 5px;
+            height: 5px;
+        }
+        
+        input[type="range"]::-moz-range-thumb {
+            appearance: none;
+            background: var(--color-secondary);
+            border: none;
+            border-radius: 50%;
+            height: 15px;
+            width: 15px;
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+            transition: var(--transition-smooth);
+        }
+        
+        /* Victory grid improvements */
+        .victory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        /* Mobile-specific optimizations */
         @media (max-width: 768px) {
-            .game-title { font-size: 2em; }
-            .energy-selector { grid-template-columns: repeat(2, 1fr); }
-            .goblin-companion { width: 60px; height: 60px; font-size: 1.5em; }
-            .chaos-meter { position: relative; margin-bottom: 20px; }
+            .container {
+                padding: 15px;
+            }
+            
+            .game-title { 
+                font-size: 1.8rem; 
+            }
+            
+            .energy-selector { 
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            
+            .goblin-companion { 
+                width: 60px; 
+                height: 60px; 
+                font-size: 1.5rem;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .goblin-speech {
+                bottom: 90px;
+                right: 15px;
+                max-width: calc(100vw - 40px);
+            }
+            
+            .chaos-meter { 
+                position: relative; 
+                margin-bottom: 20px;
+                max-width: 100%;
+                left: 0;
+                top: 0;
+            }
+            
+            .meter-bar {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .experiment-card {
+                padding: 20px 15px;
+            }
+            
+            .ritual-button {
+                font-size: 0.9rem;
+                padding: 12px 20px;
+                margin: 5px;
+                width: calc(100% - 10px);
+            }
+            
+            .victory-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .achievement {
+                font-size: 1rem;
+                padding: 15px 20px;
+            }
+            
+            .text-input {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+            
+            .rating-container label {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .rating-container input[type="range"] {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+        
+        /* Small mobile optimizations */
+        @media (max-width: 480px) {
+            .game-title {
+                font-size: 1.5rem;
+            }
+            
+            .experiment-title {
+                font-size: 1.2rem;
+            }
+            
+            .energy-option {
+                font-size: 0.8rem;
+                padding: 12px 8px;
+            }
+        }
+        
+        /* Print styles for certificate */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .chaos-meter,
+            .goblin-companion,
+            .goblin-speech,
+            .chaos-particles {
+                display: none !important;
+            }
+        }
+        
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Focus styles for keyboard navigation */
+        *:focus {
+            outline: 2px solid var(--color-secondary);
+            outline-offset: 2px;
+        }
+        
+        button:focus,
+        .energy-option:focus {
+            outline: 2px solid var(--color-secondary);
+            outline-offset: 4px;
+        }
+        
+        /* Loading state */
+        .loading {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        
+        /* Custom scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--color-bg-dark);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-secondary);
         }
     </style>
 </head>
 <body>
-    <div class="chaos-particles" id="particles"></div>
+    <div class="chaos-particles" id="particles" role="presentation" aria-hidden="true"></div>
     
-    <div class="chaos-meter">
+    <div class="chaos-meter" role="status" aria-live="polite" aria-label="Chaos energy meter">
         <div class="meter-label">Chaos Energy</div>
-        <div class="meter-bar">
+        <div class="meter-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
             <div class="meter-fill" id="chaosMeter"></div>
         </div>
-        <div style="color: #f39c12; font-size: 0.8em; margin-top: 5px;">
+        <div style="color: var(--color-secondary); font-size: 0.8rem; margin-top: 5px;">
             <span id="chaosLevel">0</span>% Functional Goblin
         </div>
-        <button onclick="showHelp()" style="background: none; border: 1px solid #f39c12; color: #f39c12; border-radius: 5px; padding: 5px; margin-top: 10px; cursor: pointer; font-family: inherit; font-size: 0.8em;">
+        <button onclick="showHelp()" class="help-button" aria-label="Show help">
             ❓ Help
         </button>
     </div>
     
-    <div class="goblin-companion" id="goblinCompanion">🧙‍♀️</div>
-    <div class="goblin-speech" id="goblinSpeech">
+    <div class="goblin-companion" id="goblinCompanion" role="button" tabindex="0" aria-label="Goblin companion - click for wisdom">🧙‍♀️</div>
+    <div class="goblin-speech" id="goblinSpeech" role="tooltip" aria-hidden="true">
         <div id="goblinMessage">Click me for chaos wisdom!</div>
     </div>
     
-    <div class="achievement" id="achievement">
+    <div class="achievement" id="achievement" role="alert" aria-hidden="true">
         <div id="achievementText">Achievement Unlocked!</div>
     </div>
     
-    <div class="container">
-        <div class="game-header">
+    <main class="container">
+        <header class="game-header">
             <h1 class="game-title">⏱ The 5-Second Ritual Lab</h1>
             <div class="typewriter" id="subtitle">Goblin Brain Rehabilitation Center</div>
-            <div class="progress-bar">
+            <div class="progress-bar" role="progressbar" aria-label="Overall progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                 <div class="progress-fill" id="gameProgress"></div>
             </div>
-            <div style="margin-top: 10px; color: #f39c12;">
+            <div style="margin-top: 10px; color: var(--color-secondary);">
                 Progress: <span id="progressText">0/8</span> Experiments Complete
             </div>
-        </div>
+        </header>
         
         <!-- Experiment 1: Energy Audit -->
-        <div class="experiment-card active" id="experiment1">
-            <h2 class="experiment-title">🧪 EXPERIMENT #1: The Inertia Audit</h2>
+        <section class="experiment-card active" id="experiment1" role="region" aria-labelledby="exp1-title">
+            <h2 class="experiment-title" id="exp1-title">🧪 EXPERIMENT #1: The Inertia Audit</h2>
             <p>Before we can break the paralysis, we need to map your current goblin state:</p>
             
-            <div class="energy-selector">
-                <div class="energy-option" data-energy="concrete">🪨<br>CONCRETE<br>STATUE</div>
-                <div class="energy-option" data-energy="ocean">🌊<br>RESTLESS<br>OCEAN</div>
-                <div class="energy-option" data-energy="fog">💭<br>FLOATING<br>BRAIN FOG</div>
-                <div class="energy-option" data-energy="chaos">🔥<br>MANIC<br>GOBLIN</div>
-                <div class="energy-option" data-energy="slug">😴<br>SLEEPY<br>SLUG</div>
-                <div class="energy-option" data-energy="hummingbird">⚡<br>ANXIOUS<br>HUMMINGBIRD</div>
+            <div class="energy-selector" role="group" aria-label="Select your current energy state">
+                <div class="energy-option" data-energy="concrete" tabindex="0" role="button" aria-pressed="false">🪨<br>CONCRETE<br>STATUE</div>
+                <div class="energy-option" data-energy="ocean" tabindex="0" role="button" aria-pressed="false">🌊<br>RESTLESS<br>OCEAN</div>
+                <div class="energy-option" data-energy="fog" tabindex="0" role="button" aria-pressed="false">💭<br>FLOATING<br>BRAIN FOG</div>
+                <div class="energy-option" data-energy="chaos" tabindex="0" role="button" aria-pressed="false">🔥<br>MANIC<br>GOBLIN</div>
+                <div class="energy-option" data-energy="slug" tabindex="0" role="button" aria-pressed="false">😴<br>SLEEPY<br>SLUG</div>
+                <div class="energy-option" data-energy="hummingbird" tabindex="0" role="button" aria-pressed="false">⚡<br>ANXIOUS<br>HUMMINGBIRD</div>
             </div>
             
             <div class="confession-booth">
                 <label for="procrastination">The thing you're avoiding right now:</label>
-                <input type="text" class="text-input" id="procrastination" placeholder="Type your biggest 'nope' here...">
+                <input type="text" class="text-input" id="procrastination" placeholder="Type your biggest 'nope' here..." autocomplete="off">
                 
                 <label for="avoidanceTime">How long you've been avoiding it:</label>
-                <input type="text" class="text-input" id="avoidanceTime" placeholder="Forever? Three days? Since the Renaissance?">
+                <input type="text" class="text-input" id="avoidanceTime" placeholder="Forever? Three days? Since the Renaissance?" autocomplete="off">
                 
                 <label for="brainStory">The story your brain tells you:</label>
-                <textarea class="text-input" id="brainStory" placeholder="'I'm too broken/lazy/chaotic to do this thing...'"></textarea>
+                <textarea class="text-input" id="brainStory" placeholder="'I'm too broken/lazy/chaotic to do this thing...'" rows="3"></textarea>
             </div>
             
-            <button class="ritual-button" onclick="completeExperiment(1)">Complete Energy Audit</button>
-        </div>
+            <button class="ritual-button" onclick="completeExperiment(1)" aria-label="Complete energy audit experiment">Complete Energy Audit</button>
+        </section>
         
         <!-- Experiment 2: Ritual Testing -->
-        <div class="experiment-card" id="experiment2">
-            <h2 class="experiment-title">🎯 EXPERIMENT #2: Ritual Testing Ground</h2>
+        <section class="experiment-card" id="experiment2" role="region" aria-labelledby="exp2-title">
+            <h2 class="experiment-title" id="exp2-title">🎯 EXPERIMENT #2: Ritual Testing Ground</h2>
             <p><strong>IMPORTANT:</strong> These buttons will give you real instructions to do with your actual human body. Click each one, do the weird thing, then come back and document your experience!</p>
             
-            <div class="ritual-tracker">
-                <div class="ritual-status" id="ritual1">🔮</div>
-                <div class="ritual-status" id="ritual2">🌪️</div>
-                <div class="ritual-status" id="ritual3">⚡</div>
-                <div class="ritual-status" id="ritual4">🖤</div>
+            <div class="ritual-tracker" role="group" aria-label="Ritual completion status">
+                <div class="ritual-status" id="ritual1" aria-label="Ritual 1 status">🔮</div>
+                <div class="ritual-status" id="ritual2" aria-label="Ritual 2 status">🌪️</div>
+                <div class="ritual-status" id="ritual3" aria-label="Ritual 3 status">⚡</div>
+                <div class="ritual-status" id="ritual4" aria-label="Ritual 4 status">🖤</div>
             </div>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
@@ -512,10 +907,10 @@
             
             <div class="confession-booth">
                 <label for="ritualNotes">Document your ritual experiences:</label>
-                <textarea class="text-input" id="ritualNotes" placeholder="How did your body/brain react? Did anything shift? Get weird with the details..."></textarea>
+                <textarea class="text-input" id="ritualNotes" placeholder="How did your body/brain react? Did anything shift? Get weird with the details..." rows="4"></textarea>
                 
                 <div id="ritualFeedback" style="margin-top: 15px;">
-                    <h4 style="color: #f39c12; margin-bottom: 10px;">Rate each ritual you completed:</h4>
+                    <h4 style="color: var(--color-secondary); margin-bottom: 10px;">Rate each ritual you completed:</h4>
                     <div id="ritualRatings"></div>
                 </div>
             </div>
@@ -523,46 +918,46 @@
             <button class="ritual-button" onclick="completeExperiment(2)" id="exp2Complete" disabled>
                 Complete Ritual Testing (Perform all 4 rituals first!)
             </button>
-        </div>
+        </section>
         
         <!-- Experiment 3: Custom Ritual Lab -->
-        <div class="experiment-card" id="experiment3">
-            <h2 class="experiment-title">🎪 EXPERIMENT #3: Custom Ritual Creation</h2>
+        <section class="experiment-card" id="experiment3" role="region" aria-labelledby="exp3-title">
+            <h2 class="experiment-title" id="exp3-title">🎪 EXPERIMENT #3: Custom Ritual Creation</h2>
             <p>Design your own 5-second chaos intervention:</p>
             
             <div class="confession-booth">
                 <label for="customTrigger">When I feel:</label>
-                <input type="text" class="text-input" id="customTrigger" placeholder="overwhelmed, stuck, like a deflated balloon...">
+                <input type="text" class="text-input" id="customTrigger" placeholder="overwhelmed, stuck, like a deflated balloon..." autocomplete="off">
                 
                 <label for="customAction">I will (physical action):</label>
-                <input type="text" class="text-input" id="customAction" placeholder="dance badly, make a weird noise, reorganize my desk...">
+                <input type="text" class="text-input" id="customAction" placeholder="dance badly, make a weird noise, reorganize my desk..." autocomplete="off">
                 
                 <label for="customDeclaration">While saying:</label>
-                <input type="text" class="text-input" id="customDeclaration" placeholder="I am chaos incarnate! This too shall pass! WITNESS ME!">
+                <input type="text" class="text-input" id="customDeclaration" placeholder="I am chaos incarnate! This too shall pass! WITNESS ME!" autocomplete="off">
                 
                 <button class="ritual-button" onclick="testCustomRitual()">🧪 Test Your Custom Ritual</button>
                 
-                <div id="customRitualResult" style="margin-top: 15px; padding: 15px; background: rgba(39, 174, 96, 0.1); border-radius: 10px; display: none;">
+                <div id="customRitualResult" class="rating-container" style="margin-top: 15px; display: none;">
                     <strong>Ritual Created!</strong> Now actually do it and rate the effectiveness:
-                    <div style="margin: 10px 0;">
-                        <span>Weirdness Level: </span>
-                        <input type="range" min="1" max="10" value="5" id="weirdnessSlider" style="margin: 0 10px;">
-                        <span id="weirdnessValue">5</span>/10
-                    </div>
-                    <div>
-                        <span>Effectiveness: </span>
-                        <input type="range" min="1" max="10" value="5" id="effectivenessSlider" style="margin: 0 10px;">
-                        <span id="effectivenessValue">5</span>/10
-                    </div>
+                    <label>
+                        Weirdness Level: 
+                        <input type="range" min="1" max="10" value="5" id="weirdnessSlider">
+                        <span class="rating-value" id="weirdnessValue">5</span>/10
+                    </label>
+                    <label>
+                        Effectiveness: 
+                        <input type="range" min="1" max="10" value="5" id="effectivenessSlider">
+                        <span class="rating-value" id="effectivenessValue">5</span>/10
+                    </label>
                 </div>
             </div>
             
             <button class="ritual-button" onclick="completeExperiment(3)">Lock In Custom Ritual</button>
-        </div>
+        </section>
         
         <!-- Experiment 4: Pattern Recognition -->
-        <div class="experiment-card" id="experiment4">
-            <h2 class="experiment-title">🔬 EXPERIMENT #4: Goblin Brain Safari</h2>
+        <section class="experiment-card" id="experiment4" role="region" aria-labelledby="exp4-title">
+            <h2 class="experiment-title" id="exp4-title">🔬 EXPERIMENT #4: Goblin Brain Safari</h2>
             <p>Let's observe your chaos patterns in their natural habitat:</p>
             
             <div class="confession-booth">
@@ -576,7 +971,7 @@
                 </select>
                 
                 <label for="todaysAvoidance">Today's biggest avoidance:</label>
-                <input type="text" class="text-input" id="todaysAvoidance" placeholder="That email, those dishes, my entire life...">
+                <input type="text" class="text-input" id="todaysAvoidance" placeholder="That email, those dishes, my entire life..." autocomplete="off">
                 
                 <label for="procrastinationFlavor">My procrastination style today:</label>
                 <select class="text-input" id="procrastinationFlavor">
@@ -588,23 +983,23 @@
                 </select>
                 
                 <label for="brainVoice">The voice in my head sounds like:</label>
-                <input type="text" class="text-input" id="brainVoice" placeholder="Disappointed parent, anxious teenager, burned-out teacher...">
+                <input type="text" class="text-input" id="brainVoice" placeholder="Disappointed parent, anxious teenager, burned-out teacher..." autocomplete="off">
             </div>
             
             <button class="ritual-button" onclick="completeExperiment(4)">Log Today's Chaos Patterns</button>
-        </div>
+        </section>
         
         <!-- Experiment 5: Narrative Archaeology -->
-        <div class="experiment-card" id="experiment5">
-            <h2 class="experiment-title">🎭 EXPERIMENT #5: Narrative Archaeology</h2>
+        <section class="experiment-card" id="experiment5" role="region" aria-labelledby="exp5-title">
+            <h2 class="experiment-title" id="exp5-title">🎭 EXPERIMENT #5: Narrative Archaeology</h2>
             <p>Let's excavate the stories keeping you stuck:</p>
             
             <div class="confession-booth">
                 <label for="cantBecause">I can't do small tasks because:</label>
-                <textarea class="text-input" id="cantBecause" placeholder="I'm lazy, broken, not good enough, will mess it up..."></textarea>
+                <textarea class="text-input" id="cantBecause" placeholder="I'm lazy, broken, not good enough, will mess it up..." rows="3"></textarea>
                 
                 <label for="brainSays">When I try to start something, my brain says:</label>
-                <textarea class="text-input" id="brainSays" placeholder="This is pointless, you'll fail anyway, why even try..."></textarea>
+                <textarea class="text-input" id="brainSays" placeholder="This is pointless, you'll fail anyway, why even try..." rows="3"></textarea>
                 
                 <button class="ritual-button" onclick="rewriteNarrative()">🔄 Rewrite as Protective Friend</button>
                 
@@ -614,18 +1009,18 @@
                 </div>
                 
                 <label for="thankYouNote">Write a thank-you note to your anxiety:</label>
-                <textarea class="text-input" id="thankYouNote" placeholder="Dear Overprotective Brain Parts, thank you for trying to keep me safe by..."></textarea>
+                <textarea class="text-input" id="thankYouNote" placeholder="Dear Overprotective Brain Parts, thank you for trying to keep me safe by..." rows="3"></textarea>
             </div>
             
             <button class="ritual-button" onclick="completeExperiment(5)">Complete Narrative Archaeology</button>
-        </div>
+        </section>
         
         <!-- Experiment 6: Victory Documentation -->
-        <div class="experiment-card" id="experiment6">
-            <h2 class="experiment-title">🏆 EXPERIMENT #6: Tiny Victory Hunter</h2>
+        <section class="experiment-card" id="experiment6" role="region" aria-labelledby="exp6-title">
+            <h2 class="experiment-title" id="exp6-title">🏆 EXPERIMENT #6: Tiny Victory Hunter</h2>
             <p>Building evidence that you're not actually broken:</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 20px 0;">
+            <div class="victory-grid">
                 <button class="ritual-button" onclick="claimVictory('coffee')" data-victory="coffee">☕ Made Coffee</button>
                 <button class="ritual-button" onclick="claimVictory('pants')" data-victory="pants">👖 Put On Pants</button>
                 <button class="ritual-button" onclick="claimVictory('text')" data-victory="text">📱 Replied to Text</button>
@@ -636,67 +1031,67 @@
                 <button class="ritual-button" onclick="claimVictory('breathed')" data-victory="breathed">🫁 Breathed</button>
             </div>
             
-            <div id="victoryCount" style="text-align: center; color: #f39c12; font-size: 1.2em; margin: 20px 0;">
+            <div id="victoryCount" style="text-align: center; color: var(--color-secondary); font-size: 1.2rem; margin: 20px 0;">
                 Victories Claimed: <span id="victoryNumber">0</span>
             </div>
             
             <div class="confession-booth">
                 <label for="surpriseVictory">Surprise victory you almost missed:</label>
-                <input type="text" class="text-input" id="surpriseVictory" placeholder="I solved a problem, made a decision, survived today...">
+                <input type="text" class="text-input" id="surpriseVictory" placeholder="I solved a problem, made a decision, survived today..." autocomplete="off">
             </div>
             
             <button class="ritual-button" onclick="completeExperiment(6)">Celebrate Victory Collection</button>
-        </div>
+        </section>
         
         <!-- Experiment 7: Scene Writing -->
-        <div class="experiment-card" id="experiment7">
-            <h2 class="experiment-title">🎬 EXPERIMENT #7: Write Your Ritual Scene</h2>
+        <section class="experiment-card" id="experiment7" role="region" aria-labelledby="exp7-title">
+            <h2 class="experiment-title" id="exp7-title">🎬 EXPERIMENT #7: Write Your Ritual Scene</h2>
             <p>Channel your inner narrator. Write a 100-word scene about someone using a 5-second ritual:</p>
             
             <div class="confession-booth">
                 <label for="sceneCharacter">Character (you, your cat, a random goblin):</label>
-                <input type="text" class="text-input" id="sceneCharacter" placeholder="Exhausted grad student, confused houseplant, office worker...">
+                <input type="text" class="text-input" id="sceneCharacter" placeholder="Exhausted grad student, confused houseplant, office worker..." autocomplete="off">
                 
                 <label for="sceneRitual">The ritual they use:</label>
-                <input type="text" class="text-input" id="sceneRitual" placeholder="Finger snapping, object moving, declarative yelling...">
+                <input type="text" class="text-input" id="sceneRitual" placeholder="Finger snapping, object moving, declarative yelling..." autocomplete="off">
                 
                 <label for="sceneStory">Your scene (be weird, be honest, be dramatic):</label>
                 <textarea class="text-input" id="sceneStory" rows="6" placeholder="The coffee cup stared at Marcus accusingly. He'd been avoiding it for three hours, letting the cold brew become a monument to his executive dysfunction. But today, something changed. He picked up the cup, not to drink, but to move it exactly two inches to the left. 'I am rearranging reality,' he whispered to his empty kitchen. And somehow, that tiny act of rebellion against inertia felt like the most revolutionary thing he'd done all week."></textarea>
                 
-                <div id="wordCount" style="color: #f39c12; margin-top: 10px;">
+                <div id="wordCount" style="color: var(--color-secondary); margin-top: 10px;">
                     Word count: <span id="wordCountNumber">0</span>
                 </div>
             </div>
             
             <button class="ritual-button" onclick="completeExperiment(7)">Submit Your Masterpiece</button>
-        </div>
+        </section>
         
         <!-- Experiment 8: Integration Manifesto -->
-        <div class="experiment-card" id="experiment8">
-            <h2 class="experiment-title">🎭 EXPERIMENT #8: Your Chaos Manifesto</h2>
+        <section class="experiment-card" id="experiment8" role="region" aria-labelledby="exp8-title">
+            <h2 class="experiment-title" id="exp8-title">🎭 EXPERIMENT #8: Your Chaos Manifesto</h2>
             <p>The final boss: integration. What did you learn about being beautifully broken?</p>
             
             <div class="confession-booth">
                 <label for="learnedBrain">What I learned about my brain:</label>
-                <textarea class="text-input" id="learnedBrain" placeholder="It's not broken, just momentum-sensitive..."></textarea>
+                <textarea class="text-input" id="learnedBrain" placeholder="It's not broken, just momentum-sensitive..." rows="3"></textarea>
                 
                 <label for="learnedStarting">What I learned about starting:</label>
-                <textarea class="text-input" id="learnedStarting" placeholder="Tiny actions can trick the panic system..."></textarea>
+                <textarea class="text-input" id="learnedStarting" placeholder="Tiny actions can trick the panic system..." rows="3"></textarea>
                 
                 <label for="learnedHuman">What I learned about being human:</label>
-                <textarea class="text-input" id="learnedHuman" placeholder="We're all just improvising and that's beautiful..."></textarea>
+                <textarea class="text-input" id="learnedHuman" placeholder="We're all just improvising and that's beautiful..." rows="3"></textarea>
                 
                 <label for="futureMessage">Message to Future Panicked You:</label>
-                <textarea class="text-input" id="futureMessage" placeholder="Remember: you've survived 100% of your worst days..."></textarea>
+                <textarea class="text-input" id="futureMessage" placeholder="Remember: you've survived 100% of your worst days..." rows="3"></textarea>
             </div>
             
             <button class="ritual-button" onclick="completeExperiment(8)">🎆 COMPLETE THE LAB EXPERIENCE 🎆</button>
-        </div>
+        </section>
         
         <!-- Final Celebration -->
-        <div class="experiment-card hidden" id="finalCelebration">
-            <h2 class="experiment-title">🎉 LABORATORY GRADUATION CEREMONY 🎉</h2>
-            <div style="text-align: center; font-size: 1.2em; line-height: 1.6;">
+        <section class="experiment-card hidden" id="finalCelebration" role="region" aria-labelledby="final-title">
+            <h2 class="experiment-title" id="final-title">🎉 LABORATORY GRADUATION CEREMONY 🎉</h2>
+            <div style="text-align: center; font-size: 1.1rem; line-height: 1.6;">
                 <p>Congratulations, you magnificent chaos goblin!</p>
                 <p>You've just completed a full neurological intervention disguised as a weird game.</p>
                 <p>Your brain will never be the same. (This is a good thing.)</p>
@@ -705,11 +1100,11 @@
                     <strong>FINAL CHAOS LEVEL: <span id="finalChaosLevel">100</span>% FUNCTIONAL GOBLIN</strong>
                 </div>
                 
-                <button class="ritual-button" onclick="downloadCertificate()" style="font-size: 1.2em; padding: 20px 40px;">
+                <button class="ritual-button" onclick="downloadCertificate()" style="font-size: 1.1rem; padding: 20px 40px;">
                     📜 Download Your Goblin Graduation Certificate
                 </button>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                <div class="victory-grid" style="margin-top: 20px;">
                     <button class="ritual-button" onclick="saveProgress()" style="background: linear-gradient(45deg, #3498db, #2980b9);">
                         💾 Save Your Progress
                     </button>
@@ -726,7 +1121,7 @@
                 
                 <div style="margin: 30px 0; padding: 20px; background: rgba(52, 152, 219, 0.1); border-radius: 15px; border: 2px dashed #3498db;">
                     <h3 style="color: #3498db; margin-bottom: 15px;">🚀 What's Next?</h3>
-                    <p style="line-height: 1.6;">
+                    <p style="line-height: 1.6; text-align: left;">
                         • Use your custom rituals in daily life<br>
                         • Come back and redo experiments when you're stuck<br>
                         • Share this with other beautiful chaos goblins<br>
@@ -739,20 +1134,24 @@
                     You've got this. Or you don't. Either way, you're still worthy of tiny celebrations and 5-second miracles.
                 </p>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
     
     <script>
-        // Game State
-        let gameState = {
+        'use strict';
+        
+        // Game State with better structure
+        const gameState = {
             experimentsCompleted: 0,
             chaosLevel: 0,
             ritualCompletions: [false, false, false, false],
             victories: [],
-            selectedEnergy: null
+            selectedEnergy: null,
+            isLoading: false
         };
         
-        const goblinMessages = [
+        // Constants
+        const GOBLIN_MESSAGES = [
             "Your chaos is valid! ✨",
             "Tiny actions, massive rebellion! 🔥",
             "You're not broken, just momentum-sensitive! 💫",
@@ -761,10 +1160,14 @@
             "Inertia is temporary, chaos is eternal! ⚡",
             "You're doing great, strange creature! 🎭",
             "Embrace the beautiful disaster! 💀",
-            "Functional is overrated anyway! 🎪"
+            "Functional is overrated anyway! 🎪",
+            "Remember: 5 seconds is all you need! ⏱️",
+            "Your anxiety is just trying to protect you! 🛡️",
+            "Small steps are still steps! 👣",
+            "Chaos goblins unite! 🎉"
         ];
         
-        const achievements = [
+        const ACHIEVEMENTS = [
             "First Contact with Chaos!",
             "Ritual Warrior Activated!",
             "Custom Chaos Creator!",
@@ -775,249 +1178,524 @@
             "Chaos Integration Master!"
         ];
         
-        // Initialize particles
+        // Performance optimization: Debounce function
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // Initialize particles with better performance
         function createParticles() {
             const particleContainer = document.getElementById('particles');
-            for (let i = 0; i < 20; i++) {
+            const fragment = document.createDocumentFragment();
+            const particleCount = window.matchMedia('(max-width: 768px)').matches ? 10 : 20;
+            
+            for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particleContainer.appendChild(particle);
+                particle.style.animationDelay = (Math.random() * 6) + 's';
+                particle.style.animationDuration = (4 + Math.random() * 4) + 's';
+                fragment.appendChild(particle);
             }
+            
+            particleContainer.appendChild(fragment);
         }
         
-        // Update progress
+        // Update progress with smooth animations
         function updateProgress() {
             const progress = (gameState.experimentsCompleted / 8) * 100;
-            document.getElementById('gameProgress').style.width = progress + '%';
-            document.getElementById('progressText').textContent = `${gameState.experimentsCompleted}/8`;
+            const progressBar = document.getElementById('gameProgress');
+            const progressText = document.getElementById('progressText');
+            
+            progressBar.style.width = progress + '%';
+            progressBar.setAttribute('aria-valuenow', progress);
+            progressText.textContent = `${gameState.experimentsCompleted}/8`;
             
             // Update chaos meter
             gameState.chaosLevel = Math.min(100, gameState.experimentsCompleted * 12.5 + (gameState.victories.length * 2));
-            document.getElementById('chaosMeter').style.width = gameState.chaosLevel + '%';
-            document.getElementById('chaosLevel').textContent = Math.round(gameState.chaosLevel);
+            const chaosMeter = document.getElementById('chaosMeter');
+            const chaosLevel = document.getElementById('chaosLevel');
+            
+            chaosMeter.style.width = gameState.chaosLevel + '%';
+            chaosMeter.parentElement.setAttribute('aria-valuenow', gameState.chaosLevel);
+            chaosLevel.textContent = Math.round(gameState.chaosLevel);
+            
+            // Update goblin animation speed based on chaos level
+            updateGoblinAnimation();
         }
         
-        // Show achievement
+        // Update goblin companion animation
+        function updateGoblinAnimation() {
+            const goblin = document.getElementById('goblinCompanion');
+            if (gameState.chaosLevel > 80) {
+                goblin.style.animationDuration = '0.5s';
+            } else if (gameState.chaosLevel > 50) {
+                goblin.style.animationDuration = '1s';
+            } else {
+                goblin.style.animationDuration = '2s';
+            }
+        }
+        
+        // Show achievement with better accessibility
         function showAchievement(text) {
             const achievement = document.getElementById('achievement');
-            document.getElementById('achievementText').textContent = text;
+            const achievementText = document.getElementById('achievementText');
+            
+            achievementText.textContent = text;
+            achievement.setAttribute('aria-hidden', 'false');
             achievement.classList.add('show');
+            
+            // Announce to screen readers
+            const announcement = document.createElement('div');
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.style.position = 'absolute';
+            announcement.style.left = '-9999px';
+            announcement.textContent = text;
+            document.body.appendChild(announcement);
             
             setTimeout(() => {
                 achievement.classList.remove('show');
+                achievement.setAttribute('aria-hidden', 'true');
+                document.body.removeChild(announcement);
             }, 2000);
         }
         
-        // Goblin companion interactions
-        document.getElementById('goblinCompanion').addEventListener('click', function() {
+        // Goblin companion interactions with keyboard support
+        function setupGoblinCompanion() {
+            const goblin = document.getElementById('goblinCompanion');
             const speech = document.getElementById('goblinSpeech');
-            const message = goblinMessages[Math.floor(Math.random() * goblinMessages.length)];
-            document.getElementById('goblinMessage').textContent = message;
             
-            speech.classList.toggle('show');
-            this.classList.add('glitch');
+            function showGoblinMessage() {
+                const message = GOBLIN_MESSAGES[Math.floor(Math.random() * GOBLIN_MESSAGES.length)];
+                document.getElementById('goblinMessage').textContent = message;
+                
+                speech.classList.add('show');
+                speech.setAttribute('aria-hidden', 'false');
+                goblin.classList.add('glitch');
+                
+                clearTimeout(window.goblinTimeout);
+                window.goblinTimeout = setTimeout(() => {
+                    speech.classList.remove('show');
+                    speech.setAttribute('aria-hidden', 'true');
+                    goblin.classList.remove('glitch');
+                }, 3000);
+            }
             
-            setTimeout(() => {
-                this.classList.remove('glitch');
-                speech.classList.remove('show');
-            }, 3000);
-        });
-        
-        // Energy selection
-        document.querySelectorAll('.energy-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('.energy-option').forEach(opt => opt.classList.remove('selected'));
-                this.classList.add('selected');
-                gameState.selectedEnergy = this.dataset.energy;
-                gameState.chaosLevel += 5;
-                updateProgress();
+            goblin.addEventListener('click', showGoblinMessage);
+            goblin.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    showGoblinMessage();
+                }
             });
-        });
+        }
         
-        // Ritual performance
+        // Energy selection with keyboard support
+        function setupEnergySelection() {
+            document.querySelectorAll('.energy-option').forEach(option => {
+                function selectEnergy() {
+                    document.querySelectorAll('.energy-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                        opt.setAttribute('aria-pressed', 'false');
+                    });
+                    
+                    option.classList.add('selected');
+                    option.setAttribute('aria-pressed', 'true');
+                    gameState.selectedEnergy = option.dataset.energy;
+                    gameState.chaosLevel += 5;
+                    updateProgress();
+                }
+                
+                option.addEventListener('click', selectEnergy);
+                option.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        selectEnergy();
+                    }
+                });
+            });
+        }
+        
+        // Enhanced ritual performance with better UX
         function performRitual(ritualNumber, instruction) {
+            if (gameState.isLoading) return;
+            
             if (gameState.ritualCompletions[ritualNumber - 1]) {
-                alert('You already completed this ritual! But feel free to do it again for extra chaos points! 🧙‍♀️');
+                showAchievement('You already mastered this ritual! Feel free to practice again! 🧙‍♀️');
                 return;
             }
             
-            // Show detailed instruction with better UX
-            const confirmed = confirm(`🎯 RITUAL ${ritualNumber} INSTRUCTIONS:\n\n"${instruction}"\n\n📋 WHAT TO DO:\n1. Get up from your chair/bed/floor\n2. Actually DO this weird thing with your human body\n3. Come back and click OK when you've done it\n4. Rate how it felt\n\nReady to get weird? Click OK to start, Cancel to chicken out.`);
+            // Create custom dialog instead of confirm
+            const dialog = document.createElement('div');
+            dialog.className = 'ritual-dialog';
+            dialog.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0, 0, 0, 0.95);
+                border: 2px solid var(--color-secondary);
+                border-radius: 15px;
+                padding: 30px;
+                max-width: 90vw;
+                max-height: 90vh;
+                z-index: 2000;
+                color: var(--color-secondary);
+                font-family: var(--font-main);
+                overflow-y: auto;
+                box-shadow: 0 0 30px rgba(243, 156, 18, 0.5);
+            `;
             
-            if (!confirmed) return;
+            dialog.innerHTML = `
+                <h3 style="color: var(--color-secondary); margin-bottom: 15px;">🎯 RITUAL ${ritualNumber} INSTRUCTIONS</h3>
+                <p style="font-size: 1.1rem; margin: 15px 0; color: var(--color-primary);">"${instruction}"</p>
+                <div style="background: rgba(243, 156, 18, 0.1); padding: 15px; border-radius: 10px; margin: 15px 0;">
+                    <strong>📋 WHAT TO DO:</strong><br>
+                    1. Get up from your chair/bed/floor<br>
+                    2. Actually DO this weird thing with your human body<br>
+                    3. Come back and click "I Did It!" when complete<br>
+                    4. Rate how it felt
+                </div>
+                <p style="margin: 15px 0; font-style: italic;">Ready to get weird?</p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="ritual-button" onclick="startRitualTimer(${ritualNumber}, '${instruction}')" style="margin: 5px;">
+                        ⏱️ Start Ritual
+                    </button>
+                    <button class="ritual-button" onclick="closeRitualDialog()" style="margin: 5px; background: linear-gradient(45deg, #e74c3c, #c0392b);">
+                        ❌ Maybe Later
+                    </button>
+                </div>
+            `;
             
-            // Give them time to do it
-            setTimeout(() => {
-                const completed = confirm(`Did you actually do it? Be honest with yourself, goblin. 🧙‍♀️\n\nClick OK if you did the thing, Cancel if you need more time.`);
+            document.body.appendChild(dialog);
+            
+            // Close dialog function
+            window.closeRitualDialog = () => {
+                dialog.remove();
+            };
+            
+            // Start ritual with timer
+            window.startRitualTimer = (num, inst) => {
+                dialog.remove();
                 
-                if (completed) {
-                    // Mark as completed
-                    gameState.ritualCompletions[ritualNumber - 1] = true;
-                    document.getElementById(`ritual${ritualNumber}`).classList.add('completed');
-                    document.getElementById(`ritualBtn${ritualNumber}`).classList.add('completed');
-                    document.getElementById(`ritualBtn${ritualNumber}`).innerHTML = document.getElementById(`ritualBtn${ritualNumber}`).innerHTML.replace('<small>Click for instructions!</small>', '<small>✅ COMPLETED!</small>');
+                // Create timer overlay
+                const timerOverlay = document.createElement('div');
+                timerOverlay.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(0, 0, 0, 0.9);
+                    padding: 30px;
+                    border-radius: 15px;
+                    text-align: center;
+                    z-index: 2000;
+                    color: var(--color-secondary);
+                    font-size: 1.5rem;
+                `;
+                
+                timerOverlay.innerHTML = `
+                    <div>GO DO THE RITUAL!</div>
+                    <div style="font-size: 3rem; margin: 20px 0;">5</div>
+                    <button class="ritual-button" onclick="completeRitualAction(${num})">
+                        ✅ I Did It!
+                    </button>
+                `;
+                
+                document.body.appendChild(timerOverlay);
+                
+                // Count down
+                let count = 5;
+                const countElement = timerOverlay.querySelector('div:nth-child(2)');
+                const countdown = setInterval(() => {
+                    count--;
+                    if (count > 0) {
+                        countElement.textContent = count;
+                    } else {
+                        countElement.textContent = '🎉';
+                        clearInterval(countdown);
+                    }
+                }, 1000);
+                
+                // Complete ritual function
+                window.completeRitualAction = (num) => {
+                    clearInterval(countdown);
+                    timerOverlay.remove();
                     
-                    // Add rating slider for this ritual
-                    addRitualRating(ritualNumber);
+                    // Mark as completed
+                    gameState.ritualCompletions[num - 1] = true;
+                    document.getElementById(`ritual${num}`).classList.add('completed');
+                    document.getElementById(`ritualBtn${num}`).classList.add('completed');
+                    document.getElementById(`ritualBtn${num}`).innerHTML = 
+                        document.getElementById(`ritualBtn${num}`).innerHTML.replace(
+                            '<small>Click for instructions!</small>', 
+                            '<small>✅ COMPLETED!</small>'
+                        );
+                    
+                    // Add rating slider
+                    addRitualRating(num);
                     
                     gameState.chaosLevel += 10;
                     updateProgress();
                     
-                    showAchievement(`Ritual ${ritualNumber} Complete! 🎉`);
+                    showAchievement(`Ritual ${num} Complete! You beautiful chaos goblin! 🎉`);
                     
                     // Check if all rituals completed
                     if (gameState.ritualCompletions.every(r => r)) {
-                        document.getElementById('exp2Complete').disabled = false;
-                        document.getElementById('exp2Complete').style.background = 'linear-gradient(45deg, #27ae60, #2ecc71)';
-                        document.getElementById('exp2Complete').textContent = '🎆 All Rituals Complete! Continue to Next Experiment 🎆';
+                        const completeBtn = document.getElementById('exp2Complete');
+                        completeBtn.disabled = false;
+                        completeBtn.style.background = 'linear-gradient(45deg, #27ae60, #2ecc71)';
+                        completeBtn.textContent = '🎆 All Rituals Complete! Continue to Next Experiment 🎆';
                     }
-                } else {
-                    alert('No worries! The ritual will wait for you. Click the button again when you\'re ready to try! 💫');
-                }
-            }, 1000);
+                };
+            };
         }
         
-        // Add ritual rating system
+        // Add ritual rating system with better styling
         function addRitualRating(ritualNumber) {
             const ratingsContainer = document.getElementById('ritualRatings');
             const ratingDiv = document.createElement('div');
-            ratingDiv.style.cssText = 'margin: 10px 0; padding: 10px; background: rgba(243, 156, 18, 0.1); border-radius: 8px;';
+            ratingDiv.className = 'rating-container';
             
             ratingDiv.innerHTML = `
-                <strong>Ritual ${ritualNumber} - How weird/effective was it?</strong><br>
-                <label style="display: block; margin: 5px 0;">
+                <strong>Ritual ${ritualNumber} - How weird/effective was it?</strong>
+                <label>
                     Weirdness Level: 
-                    <input type="range" min="1" max="10" value="5" id="weird${ritualNumber}" style="margin: 0 10px;">
-                    <span id="weirdVal${ritualNumber}">5</span>/10
+                    <input type="range" min="1" max="10" value="5" id="weird${ritualNumber}">
+                    <span class="rating-value" id="weirdVal${ritualNumber}">5</span>/10
                 </label>
-                <label style="display: block; margin: 5px 0;">
+                <label>
                     Effectiveness: 
-                    <input type="range" min="1" max="10" value="5" id="effect${ritualNumber}" style="margin: 0 10px;">
-                    <span id="effectVal${ritualNumber}">5</span>/10
+                    <input type="range" min="1" max="10" value="5" id="effect${ritualNumber}">
+                    <span class="rating-value" id="effectVal${ritualNumber}">5</span>/10
                 </label>
             `;
             
             ratingsContainer.appendChild(ratingDiv);
             
-            // Add event listeners for sliders
-            document.getElementById(`weird${ritualNumber}`).addEventListener('input', function() {
-                document.getElementById(`weirdVal${ritualNumber}`).textContent = this.value;
-            });
+            // Add event listeners with debouncing
+            const updateWeird = debounce((e) => {
+                document.getElementById(`weirdVal${ritualNumber}`).textContent = e.target.value;
+            }, 50);
             
-            document.getElementById(`effect${ritualNumber}`).addEventListener('input', function() {
-                document.getElementById(`effectVal${ritualNumber}`).textContent = this.value;
-            });
+            const updateEffect = debounce((e) => {
+                document.getElementById(`effectVal${ritualNumber}`).textContent = e.target.value;
+            }, 50);
+            
+            document.getElementById(`weird${ritualNumber}`).addEventListener('input', updateWeird);
+            document.getElementById(`effect${ritualNumber}`).addEventListener('input', updateEffect);
         }
         
-        // Custom ritual testing
+        // Custom ritual testing with validation
         function testCustomRitual() {
-            const trigger = document.getElementById('customTrigger').value;
-            const action = document.getElementById('customAction').value;
-            const declaration = document.getElementById('customDeclaration').value;
+            const trigger = document.getElementById('customTrigger').value.trim();
+            const action = document.getElementById('customAction').value.trim();
+            const declaration = document.getElementById('customDeclaration').value.trim();
             
             if (!trigger || !action || !declaration) {
-                alert('Fill in all fields to create your chaos intervention!');
+                showAchievement('Fill in all fields to create your chaos intervention! 🧪');
                 return;
             }
             
-            alert(`🧪 YOUR CUSTOM RITUAL:\n\nWhen you feel: ${trigger}\nYou will: ${action}\nWhile saying: "${declaration}"\n\nNow actually DO IT and rate the results!`);
+            // Create custom ritual display
+            const ritualDisplay = document.createElement('div');
+            ritualDisplay.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0, 0, 0, 0.95);
+                border: 2px solid var(--color-secondary);
+                border-radius: 15px;
+                padding: 30px;
+                max-width: 90vw;
+                z-index: 2000;
+                color: var(--color-secondary);
+                text-align: center;
+                box-shadow: 0 0 30px rgba(243, 156, 18, 0.5);
+            `;
             
-            document.getElementById('customRitualResult').style.display = 'block';
+            ritualDisplay.innerHTML = `
+                <h3 style="margin-bottom: 20px;">🧪 YOUR CUSTOM RITUAL</h3>
+                <div style="text-align: left; background: rgba(243, 156, 18, 0.1); padding: 15px; border-radius: 10px;">
+                    <p><strong>When you feel:</strong> ${trigger}</p>
+                    <p><strong>You will:</strong> ${action}</p>
+                    <p><strong>While saying:</strong> "${declaration}"</p>
+                </div>
+                <p style="margin: 20px 0;">Now actually DO IT and come back!</p>
+                <button class="ritual-button" onclick="this.parentElement.remove(); document.getElementById('customRitualResult').style.display = 'block';">
+                    ✅ I Did My Custom Ritual!
+                </button>
+            `;
+            
+            document.body.appendChild(ritualDisplay);
+            
             gameState.chaosLevel += 15;
             updateProgress();
         }
         
-        // Slider updates
-        document.getElementById('weirdnessSlider').addEventListener('input', function() {
-            document.getElementById('weirdnessValue').textContent = this.value;
-        });
+        // Slider updates with debouncing
+        function setupSliders() {
+            const sliders = [
+                { id: 'weirdnessSlider', valueId: 'weirdnessValue' },
+                { id: 'effectivenessSlider', valueId: 'effectivenessValue' }
+            ];
+            
+            sliders.forEach(({ id, valueId }) => {
+                const slider = document.getElementById(id);
+                if (slider) {
+                    const updateValue = debounce(() => {
+                        document.getElementById(valueId).textContent = slider.value;
+                    }, 50);
+                    
+                    slider.addEventListener('input', updateValue);
+                }
+            });
+        }
         
-        document.getElementById('effectivenessSlider').addEventListener('input', function() {
-            document.getElementById('effectivenessValue').textContent = this.value;
-        });
-        
-        // Narrative rewriting
+        // Narrative rewriting with better suggestions
         function rewriteNarrative() {
-            const cantBecause = document.getElementById('cantBecause').value;
-            const brainSays = document.getElementById('brainSays').value;
+            const cantBecause = document.getElementById('cantBecause').value.trim();
+            const brainSays = document.getElementById('brainSays').value.trim();
             
             if (!cantBecause && !brainSays) {
-                alert('Write something first, then I can help rewrite it!');
+                showAchievement('Write something first, then I can help rewrite it! 📝');
                 return;
             }
             
-            const rewritten = `Your brain is trying to say: "Hey, I notice you're scared of failing or being judged. What if we tried breaking this into smaller, less scary pieces instead of avoiding it completely?"`;
+            // Generate contextual rewrite based on input
+            let rewritten = "Your brain is trying to protect you. ";
+            
+            if (cantBecause.toLowerCase().includes('lazy')) {
+                rewritten += "It's noticing you're exhausted and trying to preserve energy. ";
+            } else if (cantBecause.toLowerCase().includes('broken')) {
+                rewritten += "It's scared you'll be hurt or disappointed again. ";
+            } else if (cantBecause.toLowerCase().includes('fail')) {
+                rewritten += "It remembers past pain and wants to shield you from it. ";
+            }
+            
+            rewritten += "What if we tried breaking this into smaller, less scary pieces? Your protective parts might feel safer with tiny steps.";
             
             document.getElementById('rewrittenText').textContent = rewritten;
             document.getElementById('rewrittenNarrative').style.display = 'block';
+            
             gameState.chaosLevel += 10;
             updateProgress();
         }
         
-        // Victory claiming
+        // Victory claiming with animation
         function claimVictory(victory) {
-            if (gameState.victories.includes(victory)) return;
+            if (gameState.victories.includes(victory)) {
+                showAchievement('You already claimed this victory! Still counts though! 🎉');
+                return;
+            }
             
             gameState.victories.push(victory);
-            document.querySelector(`[data-victory="${victory}"]`).classList.add('completed');
+            const victoryButton = document.querySelector(`[data-victory="${victory}"]`);
+            victoryButton.classList.add('completed');
+            victoryButton.style.animation = 'celebration 0.5s ease';
+            
             document.getElementById('victoryNumber').textContent = gameState.victories.length;
             
             gameState.chaosLevel += 3;
             updateProgress();
             
-            const celebrations = ['🎉', '✨', '🌟', '💫', '🎊', '🎈'];
+            const celebrations = ['🎉', '✨', '🌟', '💫', '🎊', '🎈', '🎆', '🎇'];
             const randomCelebration = celebrations[Math.floor(Math.random() * celebrations.length)];
             
-            showAchievement(`Victory Claimed! ${randomCelebration}`);
+            showAchievement(`Victory Claimed: ${victory}! ${randomCelebration}`);
         }
         
-        // Word count for scene writing
-        document.getElementById('sceneStory').addEventListener('input', function() {
-            const words = this.value.trim().split(/\s+/).filter(word => word.length > 0);
-            document.getElementById('wordCountNumber').textContent = words.length;
-        });
+        // Word count with debouncing
+        function setupWordCount() {
+            const sceneStory = document.getElementById('sceneStory');
+            if (!sceneStory) return;
+            
+            const updateWordCount = debounce(() => {
+                const words = sceneStory.value.trim().split(/\s+/).filter(word => word.length > 0);
+                document.getElementById('wordCountNumber').textContent = words.length;
+            }, 200);
+            
+            sceneStory.addEventListener('input', updateWordCount);
+        }
         
-        // Complete experiments
+        // Complete experiments with validation
         function completeExperiment(experimentNumber) {
+            if (gameState.isLoading) return;
+            
+            // Validation for specific experiments
             if (experimentNumber === 2 && !gameState.ritualCompletions.every(r => r)) {
-                alert('Complete all 4 rituals first!');
+                showAchievement('Complete all 4 rituals first! You can do this! 🧙‍♀️');
                 return;
             }
             
+            if (experimentNumber === 7) {
+                const wordCount = parseInt(document.getElementById('wordCountNumber').textContent);
+                if (wordCount < 50) {
+                    showAchievement('Write at least 50 words for your scene! Let chaos flow! ✍️');
+                    return;
+                }
+            }
+            
+            gameState.isLoading = true;
             gameState.experimentsCompleted++;
             gameState.chaosLevel += 20;
             updateProgress();
             
             // Mark current experiment as completed
-            document.getElementById(`experiment${experimentNumber}`).classList.add('completed');
+            const currentExperiment = document.getElementById(`experiment${experimentNumber}`);
+            currentExperiment.classList.add('completed');
             
             // Show achievement
-            showAchievement(achievements[experimentNumber - 1]);
+            showAchievement(ACHIEVEMENTS[experimentNumber - 1]);
             
             // Show next experiment or final celebration
             if (experimentNumber < 8) {
                 setTimeout(() => {
-                    document.getElementById(`experiment${experimentNumber + 1}`).classList.add('active');
-                    document.getElementById(`experiment${experimentNumber + 1}`).scrollIntoView({ behavior: 'smooth' });
+                    const nextExperiment = document.getElementById(`experiment${experimentNumber + 1}`);
+                    nextExperiment.classList.add('active');
+                    nextExperiment.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    gameState.isLoading = false;
                 }, 1000);
             } else {
                 // Show final celebration
                 setTimeout(() => {
-                    document.getElementById('finalCelebration').classList.remove('hidden');
-                    document.getElementById('finalCelebration').classList.add('active');
-                    document.getElementById('finalCelebration').scrollIntoView({ behavior: 'smooth' });
+                    const finalCelebration = document.getElementById('finalCelebration');
+                    finalCelebration.classList.remove('hidden');
+                    finalCelebration.classList.add('active');
+                    finalCelebration.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     document.getElementById('finalChaosLevel').textContent = Math.round(gameState.chaosLevel);
+                    gameState.isLoading = false;
+                    
+                    // Trigger celebration animation
+                    document.body.style.animation = 'celebration 1s ease';
+                    setTimeout(() => {
+                        document.body.style.animation = '';
+                    }, 1000);
                 }, 1500);
             }
         }
         
-        // Download certificate
+        // Enhanced certificate download
         function downloadCertificate() {
-            try {
-                const certificate = `
+            const date = new Date();
+            const formattedDate = date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            const certificate = `
 ═══════════════════════════════════════════════════════
 🎓 GOBLIN BRAIN REHABILITATION CERTIFICATE 🎓
 ═══════════════════════════════════════════════════════
@@ -1050,334 +1728,780 @@ When stuck: Pick one 5-second ritual and DO IT.
 When overwhelmed: Name 3 things you can see.
 When spiraling: Remember this moment of completion.
 
+CUSTOM RITUAL REMINDER:
+${document.getElementById('customTrigger')?.value ? `When you feel: ${document.getElementById('customTrigger').value}
+You will: ${document.getElementById('customAction').value}
+While saying: "${document.getElementById('customDeclaration').value}"` : 'Create your custom ritual in Experiment #3!'}
+
 Now go forth and be functionally feral! 🧙‍♀️✨
 
 ═══════════════════════════════════════════════════════
-Date: ${new Date().toLocaleDateString()}
-Time: ${new Date().toLocaleTimeString()}
+Date: ${formattedDate}
+Time: ${date.toLocaleTimeString()}
 Certified by: The Goblin Council of Chaos Management
 Certificate ID: ${Math.random().toString(36).substr(2, 9).toUpperCase()}
 ═══════════════════════════════════════════════════════
-                `;
-                
-                // Create and download the file
+`;
+            
+            try {
+                // Create blob and download
                 const blob = new Blob([certificate], { type: 'text/plain;charset=utf-8' });
                 const url = window.URL.createObjectURL(blob);
                 const link = document.createElement('a');
                 link.href = url;
-                link.download = `goblin-graduation-certificate-${new Date().toISOString().split('T')[0]}.txt`;
+                link.download = `goblin-certificate-${date.toISOString().split('T')[0]}.txt`;
+                link.style.display = 'none';
                 
-                // Append to body, click, then remove
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
                 
-                // Clean up the URL object
+                // Clean up
                 setTimeout(() => window.URL.revokeObjectURL(url), 100);
                 
                 showAchievement('Certificate Downloaded! Check your Downloads folder! 📜');
                 
-                // Also show the certificate content in a popup as backup
+                // Backup: show in modal
                 setTimeout(() => {
-                    if (confirm('Certificate downloaded! Would you like to also view it in a popup? (Useful if download didn\'t work)')) {
-                        const popup = window.open('', '_blank', 'width=600,height=400,scrollbars=yes');
-                        popup.document.write(`<pre style="font-family: monospace; white-space: pre-wrap; padding: 20px; background: #1a1a2e; color: #f39c12;">${certificate}</pre>`);
-                        popup.document.title = 'Your Goblin Certificate';
-                    }
+                    const modal = document.createElement('div');
+                    modal.style.cssText = `
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background: white;
+                        color: black;
+                        padding: 20px;
+                        border-radius: 10px;
+                        max-width: 90vw;
+                        max-height: 80vh;
+                        overflow-y: auto;
+                        z-index: 2000;
+                        font-family: monospace;
+                        white-space: pre-wrap;
+                        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+                    `;
+                    
+                    modal.innerHTML = `
+                        <button onclick="this.parentElement.remove()" style="float: right; background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">✕ Close</button>
+                        <h3>Your Certificate (Right-click to save)</h3>
+                        <pre style="margin-top: 20px;">${certificate}</pre>
+                    `;
+                    
+                    document.body.appendChild(modal);
                 }, 1000);
                 
             } catch (error) {
                 console.error('Download failed:', error);
+                
                 // Fallback: copy to clipboard
                 navigator.clipboard.writeText(certificate).then(() => {
-                    alert('Download failed, but I copied your certificate to clipboard! Paste it into a text file to save it! 📋');
+                    showAchievement('Certificate copied to clipboard! Paste it somewhere safe! 📋');
                 }).catch(() => {
-                    // Ultimate fallback: show in popup
-                    const popup = window.open('', '_blank', 'width=600,height=400,scrollbars=yes');
-                    popup.document.write(`<pre style="font-family: monospace; white-space: pre-wrap; padding: 20px; background: #1a1a2e; color: #f39c12;">${certificate}</pre>`);
-                    popup.document.title = 'Your Goblin Certificate - Right-click to Save';
-                    alert('Download failed! Your certificate opened in a new window. Right-click and save it! 📜');
+                    // Ultimate fallback: show in new window
+                    const popup = window.open('', '_blank');
+                    if (popup) {
+                        popup.document.write(`
+                            <html>
+                                <head>
+                                    <title>Your Goblin Certificate</title>
+                                    <style>
+                                        body { 
+                                            font-family: monospace; 
+                                            white-space: pre-wrap; 
+                                            padding: 20px; 
+                                            background: #1a1a2e; 
+                                            color: #f39c12; 
+                                        }
+                                    </style>
+                                </head>
+                                <body>${certificate.replace(/\n/g, '<br>')}</body>
+                            </html>
+                        `);
+                        popup.document.close();
+                    }
+                    showAchievement('Certificate opened in new window! Save it! 📜');
                 });
             }
         }
         
-        // Save progress to localStorage
+        // Enhanced save progress
         function saveProgress() {
             try {
                 const saveData = {
+                    version: '1.0',
                     gameState: gameState,
                     timestamp: new Date().toISOString(),
-                    responses: {
-                        procrastination: document.getElementById('procrastination')?.value || '',
-                        avoidanceTime: document.getElementById('avoidanceTime')?.value || '',
-                        brainStory: document.getElementById('brainStory')?.value || '',
-                        ritualNotes: document.getElementById('ritualNotes')?.value || '',
-                        customTrigger: document.getElementById('customTrigger')?.value || '',
-                        customAction: document.getElementById('customAction')?.value || '',
-                        customDeclaration: document.getElementById('customDeclaration')?.value || '',
-                        // Add more fields as needed
-                    }
+                    responses: {}
                 };
                 
-                localStorage.setItem('goblinLabProgress', JSON.stringify(saveData));
-                showAchievement('Progress Saved! 💾');
+                // Collect all form data
+                const formFields = [
+                    'procrastination', 'avoidanceTime', 'brainStory', 'ritualNotes',
+                    'customTrigger', 'customAction', 'customDeclaration', 'todaysAvoidance',
+                    'cantBecause', 'brainSays', 'thankYouNote', 'surpriseVictory',
+                    'sceneCharacter', 'sceneRitual', 'sceneStory', 'learnedBrain',
+                    'learnedStarting', 'learnedHuman', 'futureMessage', 'morningEnergy',
+                    'procrastinationFlavor', 'brainVoice'
+                ];
                 
+                formFields.forEach(field => {
+                    const element = document.getElementById(field);
+                    if (element) {
+                        saveData.responses[field] = element.value;
+                    }
+                });
+                
+                // Save ritual ratings
+                for (let i = 1; i <= 4; i++) {
+                    const weirdSlider = document.getElementById(`weird${i}`);
+                    const effectSlider = document.getElementById(`effect${i}`);
+                    if (weirdSlider) {
+                        saveData.responses[`ritual${i}Weird`] = weirdSlider.value;
+                    }
+                    if (effectSlider) {
+                        saveData.responses[`ritual${i}Effect`] = effectSlider.value;
+                    }
+                }
+                
+                localStorage.setItem('goblinLabProgress', JSON.stringify(saveData));
+                
+                showAchievement('Progress Saved Successfully! 💾');
+                
+                // Visual feedback
                 const saveButton = event.target;
                 const originalText = saveButton.textContent;
+                const originalBg = saveButton.style.background;
+                
                 saveButton.textContent = '✅ Saved!';
                 saveButton.style.background = 'linear-gradient(45deg, #27ae60, #2ecc71)';
                 
                 setTimeout(() => {
                     saveButton.textContent = originalText;
-                    saveButton.style.background = 'linear-gradient(45deg, #3498db, #2980b9)';
+                    saveButton.style.background = originalBg;
                 }, 2000);
                 
             } catch (error) {
-                alert('Save failed! Your browser might have storage disabled. 😅');
+                console.error('Save failed:', error);
+                showAchievement('Save failed! Your browser might have storage disabled. 😅');
             }
         }
         
-        // Export all responses as a journal
+        // Export journal with comprehensive data
         function exportJournal() {
-            const responses = {
-                procrastination: document.getElementById('procrastination')?.value || '',
-                avoidanceTime: document.getElementById('avoidanceTime')?.value || '',
-                brainStory: document.getElementById('brainStory')?.value || '',
-                ritualNotes: document.getElementById('ritualNotes')?.value || '',
-                customTrigger: document.getElementById('customTrigger')?.value || '',
-                customAction: document.getElementById('customAction')?.value || '',
-                customDeclaration: document.getElementById('customDeclaration')?.value || '',
-                todaysAvoidance: document.getElementById('todaysAvoidance')?.value || '',
-                cantBecause: document.getElementById('cantBecause')?.value || '',
-                brainSays: document.getElementById('brainSays')?.value || '',
-                thankYouNote: document.getElementById('thankYouNote')?.value || '',
-                surpriseVictory: document.getElementById('surpriseVictory')?.value || '',
-                sceneStory: document.getElementById('sceneStory')?.value || '',
-                learnedBrain: document.getElementById('learnedBrain')?.value || '',
-                learnedStarting: document.getElementById('learnedStarting')?.value || '',
-                learnedHuman: document.getElementById('learnedHuman')?.value || '',
-                futureMessage: document.getElementById('futureMessage')?.value || ''
-            };
+            const responses = {};
             
+            // Collect all responses
+            const formFields = [
+                { id: 'procrastination', label: 'Thing I was avoiding' },
+                { id: 'avoidanceTime', label: 'How long I\'d been avoiding it' },
+                { id: 'brainStory', label: 'My brain\'s story' },
+                { id: 'ritualNotes', label: 'Ritual experiences' },
+                { id: 'customTrigger', label: 'Custom ritual trigger' },
+                { id: 'customAction', label: 'Custom ritual action' },
+                { id: 'customDeclaration', label: 'Custom ritual declaration' },
+                { id: 'todaysAvoidance', label: 'Today\'s avoidance' },
+                { id: 'morningEnergy', label: 'Morning energy' },
+                { id: 'procrastinationFlavor', label: 'Procrastination style' },
+                { id: 'brainVoice', label: 'Brain voice' },
+                { id: 'cantBecause', label: 'Can\'t do things because' },
+                { id: 'brainSays', label: 'Brain says' },
+                { id: 'thankYouNote', label: 'Thank you note to anxiety' },
+                { id: 'surpriseVictory', label: 'Surprise victory' },
+                { id: 'sceneCharacter', label: 'Scene character' },
+                { id: 'sceneRitual', label: 'Scene ritual' },
+                { id: 'sceneStory', label: 'Scene story' },
+                { id: 'learnedBrain', label: 'What I learned about my brain' },
+                { id: 'learnedStarting', label: 'What I learned about starting' },
+                { id: 'learnedHuman', label: 'What I learned about being human' },
+                { id: 'futureMessage', label: 'Message to future me' }
+            ];
+            
+            formFields.forEach(({ id, label }) => {
+                const element = document.getElementById(id);
+                if (element && element.value) {
+                    responses[label] = element.value;
+                }
+            });
+            
+            const date = new Date();
             const journal = `
 ═══════════════════════════════════════════════════════
 🧙‍♀️ MY GOBLIN BRAIN REHABILITATION JOURNAL 🧙‍♀️
 ═══════════════════════════════════════════════════════
-Date: ${new Date().toLocaleDateString()}
+Date: ${date.toLocaleDateString()}
+Time: ${date.toLocaleTimeString()}
 Chaos Level: ${Math.round(gameState.chaosLevel)}% Functional Goblin
-
-🧪 INITIAL ASSESSMENT:
-Thing I was avoiding: ${responses.procrastination}
-How long I'd been avoiding it: ${responses.avoidanceTime}
-My brain's story: ${responses.brainStory}
-
-🎯 RITUAL EXPERIENCES:
-${responses.ritualNotes}
-
-🎪 MY CUSTOM RITUAL:
-When I feel: ${responses.customTrigger}
-I will: ${responses.customAction}
-While saying: "${responses.customDeclaration}"
-
-🔬 PATTERN RECOGNITION:
-Today's avoidance: ${responses.todaysAvoidance}
-
-🎭 NARRATIVE ARCHAEOLOGY:
-I can't do things because: ${responses.cantBecause}
-My brain says: ${responses.brainSays}
-Thank you note to anxiety: ${responses.thankYouNote}
-
-🏆 VICTORIES:
-Surprise victory: ${responses.surpriseVictory}
-Claimed victories: ${gameState.victories.join(', ')}
-
-🎬 MY RITUAL SCENE:
-${responses.sceneStory}
-
-🎆 FINAL INTEGRATION:
-What I learned about my brain: ${responses.learnedBrain}
-What I learned about starting: ${responses.learnedStarting}
-What I learned about being human: ${responses.learnedHuman}
-Message to future me: ${responses.futureMessage}
+Experiments Completed: ${gameState.experimentsCompleted}/8
 
 ═══════════════════════════════════════════════════════
-Remember: You're not broken, just momentum-sensitive! 💫
+📊 JOURNEY STATISTICS
 ═══════════════════════════════════════════════════════
-            `;
+Selected Energy State: ${gameState.selectedEnergy || 'Not selected'}
+Rituals Completed: ${gameState.ritualCompletions.filter(r => r).length}/4
+Victories Claimed: ${gameState.victories.join(', ') || 'None yet'}
+
+═══════════════════════════════════════════════════════
+💭 RESPONSES & REFLECTIONS
+═══════════════════════════════════════════════════════
+${Object.entries(responses).map(([label, value]) => `
+${label.toUpperCase()}:
+${value}
+─────────────────────────────────────────────────────`).join('')}
+
+═══════════════════════════════════════════════════════
+🎯 CUSTOM RITUAL SUMMARY
+═══════════════════════════════════════════════════════
+${responses['Custom ritual trigger'] ? `
+When I feel: ${responses['Custom ritual trigger']}
+I will: ${responses['Custom ritual action']}
+While saying: "${responses['Custom ritual declaration']}"
+` : 'No custom ritual created yet'}
+
+═══════════════════════════════════════════════════════
+✨ FINAL THOUGHTS
+═══════════════════════════════════════════════════════
+Remember: You're not broken, just momentum-sensitive!
+Small actions create big changes.
+Your chaos is valid and beautiful.
+Progress, not perfection.
+
+Keep this journal as evidence that you can change,
+that you can move, that you can start.
+
+You've got this, goblin. 🧙‍♀️💫
+═══════════════════════════════════════════════════════
+`;
             
             try {
+                // Try download
                 const blob = new Blob([journal], { type: 'text/plain;charset=utf-8' });
                 const url = window.URL.createObjectURL(blob);
                 const link = document.createElement('a');
                 link.href = url;
-                link.download = `my-goblin-journal-${new Date().toISOString().split('T')[0]}.txt`;
+                link.download = `goblin-journal-${date.toISOString().split('T')[0]}.txt`;
                 
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
                 
                 setTimeout(() => window.URL.revokeObjectURL(url), 100);
-                showAchievement('Journal Exported! 📖');
+                showAchievement('Journal Exported Successfully! 📖');
                 
             } catch (error) {
+                // Fallback to clipboard
                 navigator.clipboard.writeText(journal).then(() => {
-                    alert('Export failed, but I copied your journal to clipboard! 📋');
+                    showAchievement('Journal copied to clipboard! Paste it somewhere safe! 📋');
                 }).catch(() => {
-                    const popup = window.open('', '_blank', 'width=600,height=400,scrollbars=yes');
-                    popup.document.write(`<pre style="font-family: monospace; white-space: pre-wrap; padding: 20px;">${journal}</pre>`);
-                    alert('Export failed! Your journal opened in a new window. 📖');
+                    // Show in modal as last resort
+                    const modal = document.createElement('div');
+                    modal.style.cssText = `
+                        position: fixed;
+                        top: 10%;
+                        left: 10%;
+                        right: 10%;
+                        bottom: 10%;
+                        background: white;
+                        color: black;
+                        padding: 20px;
+                        border-radius: 10px;
+                        overflow-y: auto;
+                        z-index: 2000;
+                        font-family: monospace;
+                        white-space: pre-wrap;
+                    `;
+                    
+                    modal.innerHTML = `
+                        <button onclick="this.parentElement.remove()" style="float: right; background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 5px;">Close</button>
+                        <h3>Your Journal (Select all and copy)</h3>
+                        <pre>${journal}</pre>
+                    `;
+                    
+                    document.body.appendChild(modal);
+                    showAchievement('Journal displayed! Select all and copy it! 📖');
                 });
             }
         }
         
-        // Share experience
+        // Share experience with multiple options
         function shareExperience() {
-            const shareText = `I just completed the 5-Second Ritual Lab for ADHD brains! 🧙‍♀️ Achieved ${Math.round(gameState.chaosLevel)}% Functional Goblin status by learning to break inertia with tiny actions. It's like therapy meets indie game meets chaos magic! ✨ #ADHDTools #FunctionalGoblin #MicroActions`;
+            const shareText = `I just completed the 5-Second Ritual Lab! 🧙‍♀️ 
+
+Achieved ${Math.round(gameState.chaosLevel)}% Functional Goblin status by learning to break inertia with tiny actions. 
+
+It's like therapy meets indie game meets chaos magic! ✨ 
+
+#ADHDTools #FunctionalGoblin #MicroActions #5SecondRituals`;
             
+            // Try Web Share API first
             if (navigator.share) {
                 navigator.share({
                     title: '5-Second Ritual Lab',
                     text: shareText,
                     url: window.location.href
-                }).catch(() => {
-                    copyToClipboard(shareText);
+                }).then(() => {
+                    showAchievement('Thanks for sharing the chaos! 🌟');
+                }).catch((error) => {
+                    // User cancelled or error occurred
+                    if (error.name !== 'AbortError') {
+                        copyToClipboard(shareText);
+                    }
                 });
             } else {
+                // Fallback to clipboard
                 copyToClipboard(shareText);
             }
         }
         
-        // Copy to clipboard helper
+        // Enhanced clipboard function
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                showAchievement('Share text copied to clipboard! 📋');
+                showAchievement('Share text copied! Paste it anywhere! 📋');
+                
+                // Show share options
+                const shareModal = document.createElement('div');
+                shareModal.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(0, 0, 0, 0.95);
+                    border: 2px solid var(--color-secondary);
+                    border-radius: 15px;
+                    padding: 20px;
+                    text-align: center;
+                    z-index: 2000;
+                    max-width: 90vw;
+                `;
+                
+                shareModal.innerHTML = `
+                    <h3 style="color: var(--color-secondary); margin-bottom: 15px;">Share Your Goblin Journey! 🌟</h3>
+                    <p style="color: var(--color-primary); margin-bottom: 20px;">Text copied! Share on:</p>
+                    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                        <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}" target="_blank" class="ritual-button" style="text-decoration: none; display: inline-block;">
+                            🐦 Twitter
+                        </a>
+                        <button class="ritual-button" onclick="this.parentElement.parentElement.parentElement.remove()">
+                            ✅ Done
+                        </button>
+                    </div>
+                `;
+                
+                document.body.appendChild(shareModal);
             }).catch(() => {
-                alert('Share text:\n\n' + text + '\n\nCopy this manually to share your experience!');
+                // Final fallback
+                alert(`Share this:\n\n${text}`);
             });
         }
         
-        // Reset journey
+        // Reset journey with confirmation
         function resetJourney() {
-            if (confirm('Are you sure you want to start a fresh goblin journey? This will clear all your progress! 🔄')) {
-                if (confirm('Last chance! This will delete everything. Are you absolutely sure? 😅')) {
-                    localStorage.removeItem('goblinLabProgress');
+            const confirmReset = confirm('Are you sure you want to start fresh? This will clear all your progress! 🔄');
+            
+            if (!confirmReset) return;
+            
+            const reallyReset = confirm('Last chance! This will delete everything. Are you absolutely sure? 😅');
+            
+            if (reallyReset) {
+                localStorage.removeItem('goblinLabProgress');
+                
+                showAchievement('Starting fresh! Redirecting... 🔄');
+                
+                setTimeout(() => {
                     location.reload();
-                }
+                }, 1500);
             }
         }
         
-        // Load progress on startup
+        // Load saved progress
         function loadProgress() {
             try {
                 const savedData = localStorage.getItem('goblinLabProgress');
-                if (savedData) {
-                    const data = JSON.parse(savedData);
+                if (!savedData) return;
+                
+                const data = JSON.parse(savedData);
+                
+                // Check version compatibility
+                if (data.version !== '1.0') {
+                    console.warn('Saved data version mismatch');
+                    return;
+                }
+                
+                const daysSince = Math.floor((new Date() - new Date(data.timestamp)) / (1000 * 60 * 60 * 24));
+                const message = daysSince === 0 ? 
+                    'Found today\'s progress! Continue where you left off?' :
+                    `Found progress from ${daysSince} day${daysSince === 1 ? '' : 's'} ago! Continue?`;
+                
+                if (confirm(message + ' 🧙‍♀️')) {
+                    // Restore game state
+                    Object.assign(gameState, data.gameState);
                     
-                    if (confirm('Found saved progress! Would you like to continue where you left off? 🧙‍♀️')) {
-                        gameState = data.gameState;
-                        
-                        // Restore form values
-                        Object.entries(data.responses).forEach(([key, value]) => {
-                            const element = document.getElementById(key);
-                            if (element) {
-                                element.value = value;
+                    // Restore form values
+                    Object.entries(data.responses).forEach(([key, value]) => {
+                        const element = document.getElementById(key);
+                        if (element) {
+                            element.value = value;
+                        }
+                    });
+                    
+                    // Update UI
+                    updateProgress();
+                    
+                    // Restore experiment states
+                    for (let i = 1; i <= gameState.experimentsCompleted; i++) {
+                        const experiment = document.getElementById(`experiment${i}`);
+                        if (experiment) {
+                            experiment.classList.add('active');
+                            if (i <= gameState.experimentsCompleted) {
+                                experiment.classList.add('completed');
                             }
-                        });
-                        
-                        // Update UI to match loaded state
-                        updateProgress();
-                        
-                        // Activate completed experiments
-                        for (let i = 1; i <= gameState.experimentsCompleted; i++) {
-                            document.getElementById(`experiment${i}`).classList.add('active', 'completed');
                         }
-                        
-                        if (gameState.experimentsCompleted < 8) {
-                            document.getElementById(`experiment${gameState.experimentsCompleted + 1}`).classList.add('active');
-                        } else {
-                            document.getElementById('finalCelebration').classList.remove('hidden');
-                            document.getElementById('finalCelebration').classList.add('active');
-                        }
-                        
-                        showAchievement('Progress Restored! Welcome back, goblin! 🎉');
                     }
+                    
+                    // Show next experiment
+                    if (gameState.experimentsCompleted < 8) {
+                        const nextExperiment = document.getElementById(`experiment${gameState.experimentsCompleted + 1}`);
+                        if (nextExperiment) {
+                            nextExperiment.classList.add('active');
+                            setTimeout(() => {
+                                nextExperiment.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }, 1000);
+                        }
+                    } else {
+                        // Show final celebration if completed
+                        const finalCelebration = document.getElementById('finalCelebration');
+                        if (finalCelebration) {
+                            finalCelebration.classList.remove('hidden');
+                            finalCelebration.classList.add('active');
+                        }
+                    }
+                    
+                    // Restore ritual completions UI
+                    gameState.ritualCompletions.forEach((completed, index) => {
+                        if (completed) {
+                            const ritualStatus = document.getElementById(`ritual${index + 1}`);
+                            const ritualBtn = document.getElementById(`ritualBtn${index + 1}`);
+                            
+                            if (ritualStatus) ritualStatus.classList.add('completed');
+                            if (ritualBtn) {
+                                ritualBtn.classList.add('completed');
+                                ritualBtn.innerHTML = ritualBtn.innerHTML.replace(
+                                    '<small>Click for instructions!</small>',
+                                    '<small>✅ COMPLETED!</small>'
+                                );
+                            }
+                        }
+                    });
+                    
+                    // Restore victories UI
+                    gameState.victories.forEach(victory => {
+                        const victoryBtn = document.querySelector(`[data-victory="${victory}"]`);
+                        if (victoryBtn) victoryBtn.classList.add('completed');
+                    });
+                    
+                    // Update victory count
+                    const victoryNumber = document.getElementById('victoryNumber');
+                    if (victoryNumber) {
+                        victoryNumber.textContent = gameState.victories.length;
+                    }
+                    
+                    // Restore energy selection
+                    if (gameState.selectedEnergy) {
+                        const energyOption = document.querySelector(`[data-energy="${gameState.selectedEnergy}"]`);
+                        if (energyOption) {
+                            energyOption.classList.add('selected');
+                            energyOption.setAttribute('aria-pressed', 'true');
+                        }
+                    }
+                    
+                    showAchievement('Progress Restored! Welcome back, goblin! 🎉');
                 }
             } catch (error) {
-                console.log('No valid save data found');
+                console.error('Failed to load progress:', error);
             }
+        }
+        
+        // Help system with comprehensive guide
+        function showHelp() {
+            const helpContent = `
+🆘 GOBLIN BRAIN HELP CENTER 🆘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 WHAT IS THIS?
+An interactive experience designed for ADHD/neurodivergent brains. It's part game, part therapy tool, part chaos magic ritual.
+
+📋 HOW IT WORKS:
+1. Complete 8 experiments in order
+2. Each experiment builds on the last
+3. Actually DO the physical rituals (important!)
+4. Document your experiences
+5. Graduate as a Functional Goblin
+
+🧪 THE EXPERIMENTS:
+1. Energy Audit - Map your current state
+2. Ritual Testing - Try 4 micro-actions
+3. Custom Ritual - Create your own
+4. Pattern Recognition - Observe your brain
+5. Narrative Archaeology - Rewrite stories
+6. Victory Documentation - Celebrate wins
+7. Scene Writing - Creative integration
+8. Chaos Manifesto - Final integration
+
+🔧 TROUBLESHOOTING:
+• Can't click buttons? Check JavaScript is enabled
+• Text too small? Zoom in (Ctrl/Cmd + Plus)
+• Lost progress? Check the save button
+• Overwhelmed? Take breaks between experiments
+• Stuck? Click the goblin for encouragement
+
+✨ TIPS:
+• There's no time limit - go at your pace
+• Come back anytime to redo experiments
+• The rituals work best when done physically
+• Weird is good! Embrace the chaos
+• Progress saves automatically
+
+🎪 SECRET FEATURES:
+• Ctrl+Shift+G = Secret goblin mode
+• The goblin gives different messages
+• Your chaos level affects animations
+• Completed experiments can be redone
+
+🚀 KEYBOARD SHORTCUTS:
+• Tab = Navigate elements
+• Enter/Space = Activate buttons
+• F1 or Shift+? = Show this help
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Remember: You're not broken, just momentum-sensitive! 
+This tool is designed to work WITH your brain, not against it.
+
+Need more help? The goblin companion is always there! 🧙‍♀️✨`;
+            
+            // Create help modal
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0, 0, 0, 0.95);
+                border: 2px solid var(--color-secondary);
+                border-radius: 15px;
+                padding: 30px;
+                max-width: 90vw;
+                max-height: 80vh;
+                overflow-y: auto;
+                z-index: 2000;
+                color: var(--color-secondary);
+                font-family: var(--font-main);
+                white-space: pre-line;
+                line-height: 1.6;
+            `;
+            
+            modal.innerHTML = `
+                <button onclick="this.parentElement.remove()" style="float: right; background: var(--color-primary); color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-family: inherit;">
+                    ✕ Close
+                </button>
+                <div style="margin-top: 20px;">${helpContent}</div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Focus on close button for accessibility
+            modal.querySelector('button').focus();
         }
         
         // Easter eggs and special interactions
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && e.shiftKey && e.key === 'G') {
+        function setupEasterEggs() {
+            let konamiIndex = 0;
+            const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+            
+            document.addEventListener('keydown', (e) => {
+                // Konami code easter egg
+                if (e.key === konamiCode[konamiIndex]) {
+                    konamiIndex++;
+                    if (konamiIndex === konamiCode.length) {
+                        activateSecretMode();
+                        konamiIndex = 0;
+                    }
+                } else {
+                    konamiIndex = 0;
+                }
+                
                 // Secret goblin mode
-                document.body.style.filter = 'hue-rotate(120deg)';
-                showAchievement('Secret Goblin Mode Activated! 🧙‍♀️');
-                setTimeout(() => {
-                    document.body.style.filter = 'none';
-                }, 3000);
-            }
-        });
-        
-        // Initialize game
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            updateProgress();
-            loadProgress();
-            
-            // Typewriter effect for subtitle
-            setTimeout(() => {
-                document.getElementById('subtitle').style.width = '100%';
-            }, 1000);
-        });
-        
-        // Chaos level reactions
-        setInterval(() => {
-            if (gameState.chaosLevel > 80) {
-                document.getElementById('goblinCompanion').style.animation = 'bounce 0.5s infinite';
-            } else {
-                document.getElementById('goblinCompanion').style.animation = 'bounce 2s infinite';
-            }
-        }, 1000);
-        
-        // Help system
-        function showHelp() {
-            const helpText = `
-🆘 GOBLIN BRAIN HELP CENTER 🆘
-
-🎯 HOW THIS WORKS:
-This is an interactive experience where you actually DO things, not just read about them.
-
-📋 WHAT TO EXPECT:
-• Click buttons to get instructions for real-world actions
-• Fill out forms to track your thoughts and patterns  
-• Complete all 8 experiments to graduate
-• Your progress is saved automatically
-
-🔧 TROUBLESHOOTING:
-• Buttons not working? Make sure JavaScript is enabled
-• Download not working? Try the popup backup option
-• Stuck? Click the goblin companion for wisdom
-• Lost? Your progress is saved - just refresh!
-
-🎪 SECRET FEATURES:
-• Press Ctrl+Shift+G for goblin mode
-• The goblin companion gives different advice
-• Your chaos level affects the animations
-
-Remember: There's no wrong way to be a functional goblin! 🧙‍♀️✨
-            `;
-            
-            alert(helpText);
+                if (e.ctrlKey && e.shiftKey && e.key === 'G') {
+                    e.preventDefault();
+                    document.body.style.filter = 'hue-rotate(120deg) saturate(1.5)';
+                    showAchievement('Secret Goblin Mode Activated! 🧙‍♀️✨');
+                    
+                    setTimeout(() => {
+                        document.body.style.filter = '';
+                    }, 5000);
+                }
+                
+                // Help shortcut
+                if (e.key === 'F1' || (e.key === '?' && e.shiftKey)) {
+                    e.preventDefault();
+                    showHelp();
+                }
+                
+                // Quick save
+                if (e.ctrlKey && e.key === 's') {
+                    e.preventDefault();
+                    saveProgress();
+                }
+            });
         }
         
-        // Add help button click handler
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'F1' || (e.key === '?' && e.shiftKey)) {
-                e.preventDefault();
-                showHelp();
+        // Secret mode activation
+        function activateSecretMode() {
+            showAchievement('KONAMI CODE ACTIVATED! Maximum chaos unlocked! 🎮');
+            
+            // Add rainbow animation to everything
+            document.querySelectorAll('*').forEach(el => {
+                if (Math.random() > 0.7) {
+                    el.style.animation = 'rainbow 3s infinite';
+                }
+            });
+            
+            // Add rainbow keyframes
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes rainbow {
+                    0% { filter: hue-rotate(0deg); }
+                    100% { filter: hue-rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Revert after 10 seconds
+            setTimeout(() => {
+                document.querySelectorAll('*').forEach(el => {
+                    el.style.animation = '';
+                });
+                style.remove();
+            }, 10000);
+        }
+        
+        // Performance monitoring
+        function setupPerformanceMonitoring() {
+            // Log if page is taking too long to load
+            window.addEventListener('load', () => {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                if (loadTime > 3000) {
+                    console.warn(`Page took ${loadTime}ms to load. Consider optimizing.`);
+                }
+            });
+            
+            // Monitor for memory leaks
+            if (performance.memory) {
+                setInterval(() => {
+                    const memoryUsage = performance.memory.usedJSHeapSize / 1048576;
+                    if (memoryUsage > 100) {
+                        console.warn(`High memory usage: ${memoryUsage.toFixed(2)} MB`);
+                    }
+                }, 30000);
+            }
+        }
+        
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // Core initializations
+            createParticles();
+            updateProgress();
+            setupGoblinCompanion();
+            setupEnergySelection();
+            setupSliders();
+            setupWordCount();
+            setupEasterEggs();
+            
+            // Load saved progress
+            loadProgress();
+            
+            // Start typewriter effect
+            setTimeout(() => {
+                const subtitle = document.getElementById('subtitle');
+                if (subtitle) {
+                    subtitle.style.width = '100%';
+                }
+            }, 1000);
+            
+            // Performance optimizations
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(() => {
+                    setupPerformanceMonitoring();
+                });
+            }
+            
+            // Service worker for offline support (optional)
+            if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+                navigator.serviceWorker.register('/sw.js').catch(() => {
+                    console.log('Service worker registration failed');
+                });
+            }
+            
+            // Accessibility announcements
+            const liveRegion = document.createElement('div');
+            liveRegion.setAttribute('aria-live', 'polite');
+            liveRegion.setAttribute('aria-atomic', 'true');
+            liveRegion.style.position = 'absolute';
+            liveRegion.style.left = '-9999px';
+            liveRegion.id = 'live-region';
+            document.body.appendChild(liveRegion);
+            
+            // Welcome message
+            setTimeout(() => {
+                showAchievement('Welcome to the Ritual Lab, beautiful chaos goblin! 🧙‍♀️');
+            }, 2000);
+        });
+        
+        // Handle visibility change (pause animations when tab is hidden)
+        document.addEventListener('visibilitychange', () => {
+            const particles = document.querySelectorAll('.particle');
+            if (document.hidden) {
+                particles.forEach(p => p.style.animationPlayState = 'paused');
+            } else {
+                particles.forEach(p => p.style.animationPlayState = 'running');
             }
         });
+        
+        // Prevent accidental navigation
+        window.addEventListener('beforeunload', (e) => {
+            if (gameState.experimentsCompleted > 0 && gameState.experimentsCompleted < 8) {
+                e.preventDefault();
+                e.returnValue = 'You have unsaved progress! Are you sure you want to leave?';
+                return e.returnValue;
+            }
+        });
+        
+        // Mobile touch improvements
+        if ('ontouchstart' in window) {
+            document.body.addEventListener('touchstart', () => {}, { passive: true });
+        }
+        
+        // Auto-save every 2 minutes
+        setInterval(() => {
+            if (gameState.experimentsCompleted > 0) {
+                try {
+                    const autoSaveData = {
+                        version: '1.0',
+                        gameState: gameState,
+                        timestamp: new Date().toISOString(),
+                        responses: {}
+                    };
+                    
+                    // Minimal save for auto-save
+                    localStorage.setItem('goblinLabAutoSave', JSON.stringify(autoSaveData));
+                } catch (error) {
+                    console.log('Auto-save failed');
+                }
+            }
+        }, 120000);
     </script>
 </body>
 </html>
+```
+
